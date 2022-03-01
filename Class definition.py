@@ -42,12 +42,26 @@ def myFunc():
 
     return ClassDefinedInsideFunction()
 
+# Creating an instance of MyClass.
 myClass = MyClass("Instance data attribute inside myClass")
+
+# Creating an instance of ClassDefinedInsideIf.
 myClassInsideIf = ClassDefinedInsideIf()
+
+# Creating an instance of ClassDefinedInsideFunction.
 myClassInsideFunction = myFunc()
 
-print(myClass.myClassFunc())
-print(myClass.myOtherFunc())
-print(myClass.myFuncDefinedOutside())
-print(myClassInsideIf.attr)
-print(myClassInsideFunction.attr)
+# Referencing an instance data attribute.
+print(myClass.instanceDataAttr)
+
+# Referencing method objects.
+print(myClass.myClassFunc()) # Same as MyClass.myClassFunc(myClass)
+print(myClass.myOtherFunc()) # Same as MyClass.myOtherFunc(myClass)
+print(myClass.myFuncDefinedOutside()) # Same as MyClass.myFuncDefinedOutside(myClass)
+
+# Referencing class data attributes.
+print(myClassInsideIf.attr) # Same as print(ClassDefinedInsideIf.attr)
+print(myClassInsideFunction.attr) # Same as print(ClassDefinedInsideFunction.attr)
+
+# Printing an object's class.
+print(myClass.__class__)
