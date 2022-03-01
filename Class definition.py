@@ -1,3 +1,7 @@
+# Defining a class function outside of its class.
+def functionDefinedOutside(self):
+    return "functionDefinedOutside"
+
 # Class definition.
 class MyClass:
     classDataAttr = "MyClass data attribute" # Class data attribute definition.
@@ -16,7 +20,10 @@ class MyClass:
         return self.instanceDataAttr
 
     def myOtherFunc(self):
-        self.myClassFunc() # This is how a class function calls another class function.
+        return self.myClassFunc() # This is how a class function calls another class function.
+
+    # Adds function defined outside to this class definition.
+    myFuncDefinedOutside = functionDefinedOutside
 # When interpreter gets here, MyClass class object is created, and then it can be used to instantiate.
 
 myNumber = 50
@@ -41,5 +48,6 @@ myClassInsideFunction = myFunc()
 
 print(myClass.myClassFunc())
 print(myClass.myOtherFunc())
+print(myClass.myFuncDefinedOutside())
 print(myClassInsideIf.attr)
 print(myClassInsideFunction.attr)
